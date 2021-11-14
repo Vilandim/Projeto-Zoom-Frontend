@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component'
 import { PainelComponent } from './painel/painel.component'
 import { SejaEducadorComponent } from './seja-educador/seja-educador.component'
 import { CursoEspecificoComponent } from './curso-especifico/curso-especifico.component'
+import { CadastroAlunoComponent } from './cadastro-aluno/cadastro-aluno.component';
 
 export const ROUTES: Routes = [
   {path: '' , component: PainelComponent},
@@ -15,6 +16,7 @@ export const ROUTES: Routes = [
   {path: 'cadastro', component: CadastroComponent},
   {path: 'login', component: LoginComponent},
   {path: "seja-educador", component: SejaEducadorComponent},
-  {path: 'curso-especifico', component: CursoEspecificoComponent}
+  {path: 'curso-especifico', component: CursoEspecificoComponent},
+  {path: 'cadastro-aluno', component: CadastroAlunoComponent}
 
 ]
