@@ -1,3 +1,6 @@
+import { CategoriaCursosComponent } from './categoria-cursos/categoria-cursos.component';
+import { CadastroComplementarComponent } from './cadastro-complementar/cadastro-complementar.component';
+import { CadastroProfessorComponent } from './cadastro-professor/cadastro-professor.component';
 import { Routes } from '@angular/router'
 
 import { PaginaSobreComponent } from './pagina-sobre/pagina-sobre.component'
@@ -17,6 +20,10 @@ export const ROUTES: Routes = [
   {path: 'login', component: LoginComponent},
   {path: "seja-educador", component: SejaEducadorComponent},
   {path: 'curso-especifico', component: CursoEspecificoComponent},
-  {path: 'cadastro-aluno', component: CadastroAlunoComponent}
+  {path: 'cadastro-aluno', component: CadastroAlunoComponent},
+  {path: 'cadastro-professor', component: CadastroProfessorComponent},
+  {path: 'cadastro-complementar', component: CadastroComplementarComponent},
+  {path: 'categoria-curso/:id', component: CategoriaCursosComponent}
+
 
 ]

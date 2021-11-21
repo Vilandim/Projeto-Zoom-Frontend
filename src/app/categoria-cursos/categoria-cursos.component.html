@@ -1,0 +1,23 @@
+<div class="container mt-4" *ngFor="let data of readData">
+  <!--Card 1-->
+  <div class="card mb-3 bg-light">
+    <div class="row g-0">
+      <div class="col-5 imagem-curso d-sm-none d-md-block">
+        <img src="{{data.image}}" class="img-fluid rounded-start">
+        <div class="titulo-curso">
+          <h5 class="card-title text-light">{{data.name}}</h5>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="card-body">
+          <h5 class="card-title">{{data.name}}</h5>
+          <p class="card-text">{{data.initials}}</p>
+          <a routerLink="/cursos" class="btn btn-info">Saiba mais</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Card 1-->
+
+</div>
+

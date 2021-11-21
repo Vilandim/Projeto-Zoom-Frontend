@@ -1,6 +1,6 @@
 import { ApiserviceService } from './../apiservice.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro-aluno',
@@ -9,17 +9,23 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class CadastroAlunoComponent implements OnInit {
 
-  constructor(private service: ApiserviceService) { }
+  constructor(private service: ApiserviceService, private formBuilder: FormBuilder) { }
 
-  userForm = new FormGroup({
-    'name': new FormControl('', Validators.required),
-    'RG': new FormControl('', Validators.required),
-    'CPF': new FormControl('', Validators.required),
-    'email': new FormControl('',Validators.required),
-    'password': new FormControl('', Validators.required),
-    'role': new FormControl('', Validators.required),
-    'type': new FormControl('', Validators.required)
+  numberRegEx = /\-?\d*\.?\d{1,2}/
+
+  errorMessage:any
+  successMessage:any
+
+
+  userForm = this.formBuilder.group({
+    name: [null, Validators.required],
+    rg: [null, [Validators.required, Validators.pattern(this.numberRegEx)]],
+    cpf: [null,[Validators.required, Validators.pattern(this.numberRegEx)]],
+    email: [null,[Validators.required, Validators.email]],
+    password: [null,Validators.required],
+    type: ['aluno', Validators.required]
   })
+
 
   ngOnInit(): void {
   }
@@ -29,12 +35,21 @@ export class CadastroAlunoComponent implements OnInit {
       console.log(this.userForm.value)
       this.service.createData(this.userForm.value).subscribe(res => {
         console.log(res, 'res==>')
-        this.userForm.reset()
+        this.successMessage = "Cadastro realizado com sucesso!"
+        setTimeout( () => window.location.reload(), 3000)
       },
       error =>{
         console.log(error)
       })
     }
+    else{
+      console.log(this.errorMessage = "Preencha corretamente todos os campos")
+      this.errorMessage = "Preencha corretamente todos os campos!"
+
+
+    }
+
+
   }
 
 }

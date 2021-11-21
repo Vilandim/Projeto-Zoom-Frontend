@@ -1,3 +1,4 @@
+import { ApiServiceProfService } from './api-service-prof.service';
 import { ApiserviceService } from './apiservice.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { ROUTES } from './app.routes';
 
@@ -24,6 +26,11 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
 import { CursoEspecificoComponent } from './curso-especifico/curso-especifico.component';
 import { CadastroAlunoComponent } from './cadastro-aluno/cadastro-aluno.component';
+import { CadastroProfessorComponent } from './cadastro-professor/cadastro-professor.component';
+import { CadastroComplementarComponent } from './cadastro-complementar/cadastro-complementar.component';
+import { CategoriaCursosComponent } from './categoria-cursos/categoria-cursos.component';
+import { ApiServiceCursosService } from './api-service-cursos.service';
+
 
 
 @NgModule({
@@ -38,7 +45,11 @@ import { CadastroAlunoComponent } from './cadastro-aluno/cadastro-aluno.componen
     CadastroComponent,
     LoginComponent,
     CursoEspecificoComponent,
-    CadastroAlunoComponent
+    CadastroAlunoComponent,
+    CadastroProfessorComponent,
+    CadastroComplementarComponent,
+    CategoriaCursosComponent
+
 
   ],
   imports: [
@@ -48,10 +59,11 @@ import { CadastroAlunoComponent } from './cadastro-aluno/cadastro-aluno.componen
     RouterModule.forRoot(ROUTES),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
 
   ],
-  providers: [ApiserviceService],
+  providers: [ApiserviceService, ApiServiceCursosService, ApiServiceProfService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
