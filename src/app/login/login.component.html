@@ -4,6 +4,18 @@
     <h4>Faça seu login e comece a aprender!</h4>
   </div>
 
+   <!-- show errorMessage -->
+   <div  *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{errorMessage}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+     <!-- show SuccessMessage -->
+     <div  *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>{{successMessage}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
   <hr>
 
   <form [formGroup]="loginForm">

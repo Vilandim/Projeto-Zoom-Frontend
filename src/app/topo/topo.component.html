@@ -24,12 +24,31 @@
           <li class="nav-item mx-5">
             <a class="nav-link" routerLink="/cadastro">Cadastro</a>
           </li>
+          <li class="nav-item mx-5" *ngIf="auth == true">
+            <a class="nav-link" routerLink="/cadastro">Meu Usuário</a>
+          </li>
       </ul>
-      <button class="btn btn-primary mx-5" routerLink="/login">Login</button>
-      <form class="d-flex mx-3 mt-sm-2">
-        <input class="form-control me-2" type="search" placeholder="Pesquisar..." arial-label="Pesquisar">
+      <button class="btn btn-primary mx-5" *ngIf="auth == false" routerLink="/login">Login</button>
+
+
+      <div class="ng-autocomplete d-flex" id="pesquisa">
+        <ng-autocomplete
+          [data]="data"
+          [searchKeyword]="keyword"
+          [itemTemplate]="itemTemplate"
+          [notFoundTemplate]="notFoundTemplate"
+          class="me-2">
+        </ng-autocomplete>
+
+        <ng-template #itemTemplate let-item >
+        <a [innerHTML]="item.name"></a>
+        </ng-template>
+
+        <ng-template #notFoundTemplate let-notFound>
+          <div [innerHTML]="notFound"></div>
+          </ng-template>
         <button class="btn btn-outline-info" type="submit">Pesquisar</button>
-      </form>
+      </div>
     </div>
 </nav>
 

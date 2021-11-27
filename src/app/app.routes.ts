@@ -1,3 +1,4 @@
+import { GuardAuthGuard } from './guard-auth.guard';
 import { CategoriaCursosComponent } from './categoria-cursos/categoria-cursos.component';
 import { CadastroComplementarComponent } from './cadastro-complementar/cadastro-complementar.component';
 import { CadastroProfessorComponent } from './cadastro-professor/cadastro-professor.component';
@@ -19,7 +20,7 @@ export const ROUTES: Routes = [
   {path: 'cadastro', component: CadastroComponent},
   {path: 'login', component: LoginComponent},
   {path: "seja-educador", component: SejaEducadorComponent},
-  {path: 'curso-especifico', component: CursoEspecificoComponent},
+  {path: 'curso-especifico', component: CursoEspecificoComponent, canActivate: [GuardAuthGuard]},
   {path: 'cadastro-aluno', component: CadastroAlunoComponent},
   {path: 'cadastro-professor', component: CadastroProfessorComponent},
   {path: 'cadastro-complementar', component: CadastroComplementarComponent},

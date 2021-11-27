@@ -1,3 +1,5 @@
+import { GuardAuthGuard } from './guard-auth.guard';
+import { AuthService } from './auth.service';
 import { ApiServiceProfService } from './api-service-prof.service';
 import { ApiserviceService } from './apiservice.service';
 import { NgModule } from '@angular/core';
@@ -7,9 +9,12 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+
+
 
 
 import { ROUTES } from './app.routes';
@@ -30,6 +35,7 @@ import { CadastroProfessorComponent } from './cadastro-professor/cadastro-profes
 import { CadastroComplementarComponent } from './cadastro-complementar/cadastro-complementar.component';
 import { CategoriaCursosComponent } from './categoria-cursos/categoria-cursos.component';
 import { ApiServiceCursosService } from './api-service-cursos.service';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 
@@ -60,10 +66,11 @@ import { ApiServiceCursosService } from './api-service-cursos.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    AutocompleteLibModule
 
   ],
-  providers: [ApiserviceService, ApiServiceCursosService, ApiServiceProfService],
+  providers: [ApiserviceService, ApiServiceCursosService, ApiServiceProfService, AuthService, GuardAuthGuard,{provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
