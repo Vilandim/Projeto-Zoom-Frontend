@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   errorMessage: any
   successMessage: any
 
-  usuarioAutenticado: boolean = false
+
 
 
   loginForm = this.formBuilder.group({
@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
       console.log(`Token: ${localStorage.getItem("token")}`)
       setTimeout(() => window.location.reload(), 3000)
       this.router.navigate(['/'])
+
 
     },
     error => {console.log(error)

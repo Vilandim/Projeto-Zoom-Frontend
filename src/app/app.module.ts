@@ -35,6 +35,8 @@ import { CadastroProfessorComponent } from './cadastro-professor/cadastro-profes
 import { CadastroComplementarComponent } from './cadastro-complementar/cadastro-complementar.component';
 import { CategoriaCursosComponent } from './categoria-cursos/categoria-cursos.component';
 import { ApiServiceCursosService } from './api-service-cursos.service';
+//import { AuthInterceptor } from './auth.interceptor';
+import { MeusDadosComponent } from './meus-dados/meus-dados.component';
 import { AuthInterceptor } from './auth.interceptor';
 
 
@@ -54,7 +56,8 @@ import { AuthInterceptor } from './auth.interceptor';
     CadastroAlunoComponent,
     CadastroProfessorComponent,
     CadastroComplementarComponent,
-    CategoriaCursosComponent
+    CategoriaCursosComponent,
+    MeusDadosComponent
 
 
   ],
@@ -70,7 +73,7 @@ import { AuthInterceptor } from './auth.interceptor';
     AutocompleteLibModule
 
   ],
-  providers: [ApiserviceService, ApiServiceCursosService, ApiServiceProfService, AuthService, GuardAuthGuard,{provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true}],
+  providers: [ApiserviceService, ApiServiceCursosService, ApiServiceProfService, AuthService, GuardAuthGuard, {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

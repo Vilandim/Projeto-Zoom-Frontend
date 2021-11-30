@@ -1,3 +1,4 @@
+import { MeusDadosComponent } from './meus-dados/meus-dados.component';
 import { GuardAuthGuard } from './guard-auth.guard';
 import { CategoriaCursosComponent } from './categoria-cursos/categoria-cursos.component';
 import { CadastroComplementarComponent } from './cadastro-complementar/cadastro-complementar.component';
@@ -24,7 +25,8 @@ export const ROUTES: Routes = [
   {path: 'cadastro-aluno', component: CadastroAlunoComponent},
   {path: 'cadastro-professor', component: CadastroProfessorComponent},
   {path: 'cadastro-complementar', component: CadastroComplementarComponent},
-  {path: 'categoria-curso/:id', component: CategoriaCursosComponent}
+  {path: 'categoria-curso/:id', component: CategoriaCursosComponent},
+  {path: 'meusDados', component: MeusDadosComponent}
 
 
 ]

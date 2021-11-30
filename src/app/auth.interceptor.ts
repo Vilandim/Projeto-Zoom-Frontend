@@ -1,5 +1,5 @@
 import { LoginServiceService } from './login-service.service';
-import { Injectable, Injector } from '@angular/core';
+import { Injectable, Inject, Injector } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
@@ -13,11 +13,12 @@ export class AuthInterceptor implements HttpInterceptor {
 
   constructor(private loginService: LoginServiceService) {}
 
+
+
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     console.log(request)
     request = request.clone({
-      headers: request.headers.set('authorization', 'token' )
-
+      headers: request.headers.set('authorization', `Bearer: ${this.loginService.getToken()}` )
 
     })
     console.log(request);
@@ -26,3 +27,4 @@ export class AuthInterceptor implements HttpInterceptor {
 
   }
 }
+

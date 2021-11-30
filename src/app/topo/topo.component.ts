@@ -59,4 +59,9 @@ export class TopoComponent implements OnInit {
 
 
   }
+
+  logOut(){
+    this.loginService.loggedOut()
+    window.location.reload()
+  }
 }
