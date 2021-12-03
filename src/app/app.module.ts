@@ -38,6 +38,8 @@ import { ApiServiceCursosService } from './api-service-cursos.service';
 //import { AuthInterceptor } from './auth.interceptor';
 import { MeusDadosComponent } from './meus-dados/meus-dados.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { AtualizacaoCadastroComponent } from './atualizacao-cadastro/atualizacao-cadastro.component';
+import { CriarCursoComponent } from './criar-curso/criar-curso.component';
 
 
 
@@ -57,7 +59,9 @@ import { AuthInterceptor } from './auth.interceptor';
     CadastroProfessorComponent,
     CadastroComplementarComponent,
     CategoriaCursosComponent,
-    MeusDadosComponent
+    MeusDadosComponent,
+    AtualizacaoCadastroComponent,
+    CriarCursoComponent
 
 
   ],

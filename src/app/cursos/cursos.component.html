@@ -12,7 +12,7 @@
         <div class="card-body">
           <h5 class="card-title">{{course.name}}</h5>
           <p class="card-text">{{course.description}}</p>
-          <a routerLink="/curso-especifico" class="btn btn-info">Ver aulas</a>
+          <a [routerLink]="['/curso-especifico', course.id]" class="btn btn-info">Ver aulas</a>
         </div>
       </div>
     </div>

@@ -40,11 +40,21 @@ export class LoginServiceService {
     localStorage.setItem('token', 'example')
   }
 
-  //Testing
-  getPersonalData(token:any): Observable <any> {
 
-    return this.http.get(this.apiUrl2, {headers: new HttpHeaders({'Authorization': 'Bearer ' + token})})
+  getPersonalData(): Observable <any> {
+
+    return this.http.get(`${this.apiUrl2}/id`)
   }
+
+  deletePersonalData(id: any): Observable <any> {
+    return this.http.delete(`${this.apiUrl2}/${id}`)
+  }
+
+  updateUserData(data:any): Observable <any> {
+    return this.http.patch(this.apiUrl2, data)
+  }
+
+
 
 }
 

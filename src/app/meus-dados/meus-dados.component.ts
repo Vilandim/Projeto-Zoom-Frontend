@@ -1,5 +1,8 @@
+import { FormBuilder } from '@angular/forms';
 import { LoginServiceService } from './../login-service.service';
 import { Component, OnInit } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-meus-dados',
@@ -8,10 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MeusDadosComponent implements OnInit {
 
-  constructor(private loginService: LoginServiceService) { }
+
+  constructor(private loginService: LoginServiceService, private formBuilder: FormBuilder) { }
 
   userData: any
   token = localStorage.getItem('token')
+
+
 
   ngOnInit(): void {
 
@@ -21,17 +27,29 @@ export class MeusDadosComponent implements OnInit {
 
   //Testing
   getPersonalData(){
-    this.loginService.getPersonalData(this.token).subscribe(res =>{
+    this.loginService.getPersonalData().subscribe(res =>{
       console.log(res)
       this.userData = Object.values(res)
-      this.userData.shift()
-      this.userData = this.userData[0]
       console.log(this.userData)
+      this.userData.shift()
+      console.log(this.userData)
+
+
     },
     error => {
       console.log(error)
     }
     )
   }
+
+  deleteUser(id:any){
+    this.loginService.deletePersonalData(id).subscribe(res => {
+      console.log(res)
+    },
+    error => { console.log(error)}
+    )
+  }
+
+
 
 }

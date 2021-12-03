@@ -17,6 +17,8 @@ export class TopoComponent implements OnInit {
     data : any;
     auth: boolean = false
 
+    type: any
+
 
 
 
@@ -27,6 +29,9 @@ export class TopoComponent implements OnInit {
 
     if(this.loginService.loggedIn()){
        this.auth = true
+       this.getPersonalData()
+
+
     }
     else{
       this.auth = false
@@ -63,5 +68,17 @@ export class TopoComponent implements OnInit {
   logOut(){
     this.loginService.loggedOut()
     window.location.reload()
+  }
+
+  getPersonalData(){
+    this.loginService.getPersonalData().subscribe(res =>{
+      console.log(res)
+      if(res.data.type == 'aluno'){
+        this.type = 'aluno'
+      }
+      else{
+        this.type = 'professor'
+      }
+    })
   }
 }

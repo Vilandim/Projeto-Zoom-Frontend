@@ -14,6 +14,8 @@ export class ApiServiceCursosService {
 
   apiUrlCourses = 'http://localhost:3333/api/courses'
 
+  apiUrlClasses = 'http://localhost:3333/api/classes'
+
 // get single category data
 
 getSingleData(id:any): Observable<any>{
@@ -25,6 +27,20 @@ getSingleData(id:any): Observable<any>{
 
 getAllCourses(): Observable<any> {
   return this.http.get(`${this.apiUrlCourses}`)
+}
+
+//get single course by id
+getSingleCourse(id:any): Observable<any> {
+  return this.http.get(`${this.apiUrlCourses}/${id}`)
+}
+
+//get classes
+getClasses(): Observable<any>{
+  return this.http.get(this.apiUrlClasses)
+}
+
+createCourse(data:any): Observable<any> {
+  return this.http.post('http://localhost:3333/api/courses', data)
 }
 
 

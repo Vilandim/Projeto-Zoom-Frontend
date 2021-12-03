@@ -1,4 +1,4 @@
-<div class="container mt-4" *ngFor="let data of readData">
+<div class="container mt-4" *ngFor="let data of readData" id="categoria-curso">
   <!--Card 1-->
   <div class="card mb-3 bg-light">
     <div class="row g-0">
@@ -12,7 +12,7 @@
         <div class="card-body">
           <h5 class="card-title">{{data.name}}</h5>
           <p class="card-text">{{data.initials}}</p>
-          <a routerLink="/cursos" class="btn btn-info">Saiba mais</a>
+          <a [routerLink]="['/cursos',data.id]" class="btn btn-info">Saiba mais</a>
         </div>
       </div>
     </div>

@@ -35,7 +35,7 @@ export class CadastroProfessorComponent implements OnInit {
       console.log(this.userFormGeneralUser.value)
       this.apiProfService.createDataUser(this.userFormGeneralUser.value).subscribe(res => {
         console.log(res, 'res==>')
-        this.router.navigate(['/cadastro-complementar'])
+        this.router.navigate(['/'])
       },
       error =>{
         console.log(error)

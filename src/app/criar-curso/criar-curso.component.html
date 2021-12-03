@@ -1,0 +1,61 @@
+<div class="container col-5">
+
+  <div class="text-center mt-4">
+    <h4>Preencha os campos abaixo para criar seu curso!</h4>
+  </div>
+
+   <!-- show errorMessage
+   <div  *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{errorMessage}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>-->
+
+  <hr>
+
+  <form [formGroup]="courseForm">
+
+    <div class="form-group">
+      <label>Título do Curso</label>
+      <input type="text" class="form-control" placeholder="Digite o nome do curso" formControlName="name">
+    </div>
+
+    <div class="form-group mt-2">
+      <label>Descrição do Curso</label>
+      <input type="text" class="form-control" placeholder="Digite uma breve descrição" formControlName="description">
+    </div>
+
+    <div class="form-group mt-2">
+      <label>Imagem de capa do Curso</label>
+      <input type="text" class="form-control" placeholder="Digite a url da imagem" formControlName="image">
+    </div>
+
+    <div class="form-group mt-2">
+      <label>Categoria do Curso</label>
+      <select class="form-select" aria-label="Default select example" formControlName="category">
+        <option [value]= "1">Programação</option>
+        <option [value]="2">Finanças e Contabilidade</option>
+      </select>
+
+    </div>
+
+    <div class="form-group mt-2 d-none">
+      <label>Certificação</label>
+      <input type="text" class="form-control" placeholder="Digite a url da imagem" formControlName="certificated">
+    </div>
+
+    <div class="form-group mt-2 d-none">
+      <label>Usuário</label>
+      <input type="text" class="form-control" placeholder="Digite a url da imagem" formControlName="user">
+    </div>
+
+
+    <button class="btn btn-primary my-3" (click)= 'createCourse()'>Cadastrar</button>
+
+  </form>
+
+
+
+
+</div>
+
+

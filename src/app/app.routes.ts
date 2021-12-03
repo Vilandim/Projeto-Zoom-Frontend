@@ -1,3 +1,5 @@
+import { CriarCursoComponent } from './criar-curso/criar-curso.component';
+import { AtualizacaoCadastroComponent } from './atualizacao-cadastro/atualizacao-cadastro.component';
 import { MeusDadosComponent } from './meus-dados/meus-dados.component';
 import { GuardAuthGuard } from './guard-auth.guard';
 import { CategoriaCursosComponent } from './categoria-cursos/categoria-cursos.component';
@@ -17,16 +19,18 @@ import { CadastroAlunoComponent } from './cadastro-aluno/cadastro-aluno.componen
 export const ROUTES: Routes = [
   {path: '' , component: PainelComponent},
   {path: 'sobre', component: PaginaSobreComponent },
-  {path: 'cursos', component: CursosComponent },
+  {path: 'cursos/:id', component: CursosComponent },
   {path: 'cadastro', component: CadastroComponent},
   {path: 'login', component: LoginComponent},
   {path: "seja-educador", component: SejaEducadorComponent},
-  {path: 'curso-especifico', component: CursoEspecificoComponent, canActivate: [GuardAuthGuard]},
+  {path: 'curso-especifico/:id', component: CursoEspecificoComponent, canActivate: [GuardAuthGuard]},
   {path: 'cadastro-aluno', component: CadastroAlunoComponent},
   {path: 'cadastro-professor', component: CadastroProfessorComponent},
   {path: 'cadastro-complementar', component: CadastroComplementarComponent},
   {path: 'categoria-curso/:id', component: CategoriaCursosComponent},
-  {path: 'meusDados', component: MeusDadosComponent}
+  {path: 'meusDados', component: MeusDadosComponent},
+  {path: 'atualizacao-usuario/:id', component: AtualizacaoCadastroComponent},
+  {path: 'criar-curso', component: CriarCursoComponent}
 
 
 ]
