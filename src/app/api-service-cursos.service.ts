@@ -43,6 +43,10 @@ createCourse(data:any): Observable<any> {
   return this.http.post('http://localhost:3333/api/courses', data)
 }
 
+createClasses(data:any): Observable<any> {
+  return this.http.post(this.apiUrlClasses, data)
+}
+
 
 }
 

@@ -1,3 +1,4 @@
+import { IDeleteController } from './../../../../backend/naosabemosumnome_backend/src/controllers/questionController/delete/IDeleteController';
 import { LoginServiceService } from './../login-service.service';
 import { AuthService } from './../auth.service';
 import { Router } from '@angular/router';
@@ -19,13 +20,17 @@ export class TopoComponent implements OnInit {
 
     type: any
 
+    userId: any
+
+
+
 
 
 
   constructor(private serviceCursos: ApiServiceCursosService, private router: Router, private loginService: LoginServiceService) { }
 
   ngOnInit(): void {
-    this.getData()
+
 
     if(this.loginService.loggedIn()){
        this.auth = true
@@ -79,6 +84,10 @@ export class TopoComponent implements OnInit {
       else{
         this.type = 'professor'
       }
+
+      this.userId = res.data.id
+      console.log(this.userId)
+
     })
   }
 }

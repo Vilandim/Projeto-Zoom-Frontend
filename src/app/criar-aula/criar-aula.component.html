@@ -1,0 +1,58 @@
+<div class="container col-5">
+
+  <div class="text-center mt-4">
+    <h4>Preencha os campos abaixo para criar a aula do curso!</h4>
+  </div>
+
+   <!-- show errorMessage -->
+   <div  *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{errorMessage}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+     <!-- show SuccessMessage -->
+     <div  *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>{{successMessage}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+  <hr>
+
+  <form [formGroup]="classForm">
+
+    <div class="form-group">
+      <label>Título da Aula</label>
+      <input type="text" class="form-control" placeholder="Digite o nome do curso" formControlName="name">
+    </div>
+
+    <div class="form-group mt-2 d-none">
+      <label>Descrição do Curso</label>
+      <input type="text" class="form-control" placeholder="Digite uma breve descrição" formControlName="description">
+    </div>
+
+    <div class="form-group mt-2">
+      <label>Link do Zoom para acesso à aula</label>
+      <input type="text" class="form-control" placeholder="Digite a url da imagem" formControlName="link">
+    </div>
+
+    <div class="form-group mt-2">
+      <label>Essa aula pertence a qual curso?</label>
+      <select class="form-select" aria-label="Default select example" formControlName="course" >
+        <option [value]= "[data.id]" *ngFor="let data of courses">{{data.name}}</option>
+
+      </select>
+
+    </div>
+
+
+    <button class="btn btn-primary my-3 mx-2" (click)="createClass()">Cadastrar</button>
+    <button class="btn btn-info my-3" (click)="exit()">Sair</button>
+  </form>
+
+
+
+
+</div>
+
+
+

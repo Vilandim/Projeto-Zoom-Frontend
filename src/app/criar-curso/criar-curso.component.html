@@ -4,11 +4,17 @@
     <h4>Preencha os campos abaixo para criar seu curso!</h4>
   </div>
 
-   <!-- show errorMessage
+   <!-- show errorMessage -->
    <div  *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
     <strong>{{errorMessage}}</strong>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>-->
+  </div>
+
+   <!-- show SuccessMessage -->
+   <div  *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{successMessage}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
 
   <hr>
 
@@ -25,7 +31,7 @@
     </div>
 
     <div class="form-group mt-2">
-      <label>Imagem de capa do Curso</label>
+      <label>Link imagem de capa do Curso</label>
       <input type="text" class="form-control" placeholder="Digite a url da imagem" formControlName="image">
     </div>
 

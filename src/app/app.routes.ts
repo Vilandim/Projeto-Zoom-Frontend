@@ -1,3 +1,4 @@
+import { CriarAulaComponent } from './criar-aula/criar-aula.component';
 import { CriarCursoComponent } from './criar-curso/criar-curso.component';
 import { AtualizacaoCadastroComponent } from './atualizacao-cadastro/atualizacao-cadastro.component';
 import { MeusDadosComponent } from './meus-dados/meus-dados.component';
@@ -30,7 +31,8 @@ export const ROUTES: Routes = [
   {path: 'categoria-curso/:id', component: CategoriaCursosComponent},
   {path: 'meusDados', component: MeusDadosComponent},
   {path: 'atualizacao-usuario/:id', component: AtualizacaoCadastroComponent},
-  {path: 'criar-curso', component: CriarCursoComponent}
+  {path: 'criar-curso/:id', component: CriarCursoComponent},
+  {path: 'criar-aula/:id', component: CriarAulaComponent}
 
 
 ]

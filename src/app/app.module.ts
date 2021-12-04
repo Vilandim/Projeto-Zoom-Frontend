@@ -40,6 +40,7 @@ import { MeusDadosComponent } from './meus-dados/meus-dados.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { AtualizacaoCadastroComponent } from './atualizacao-cadastro/atualizacao-cadastro.component';
 import { CriarCursoComponent } from './criar-curso/criar-curso.component';
+import { CriarAulaComponent } from './criar-aula/criar-aula.component';
 
 
 
@@ -61,7 +62,8 @@ import { CriarCursoComponent } from './criar-curso/criar-curso.component';
     CategoriaCursosComponent,
     MeusDadosComponent,
     AtualizacaoCadastroComponent,
-    CriarCursoComponent
+    CriarCursoComponent,
+    CriarAulaComponent
 
 
   ],
